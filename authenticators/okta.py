@@ -13,7 +13,7 @@ def authenticate(p):
   attributes = dict(p)
   username = attributes['User-Name']
   password = attributes['User-Password']
-  
+
   if not username.endswith('@{}'.format(os.environ['OKTA_DOMAIN'])):
     username = username + '@{}'.format(os.environ['OKTA_DOMAIN'])
 

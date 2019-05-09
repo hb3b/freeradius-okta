@@ -15,3 +15,4 @@ COPY --from=python /venv/lib/python2.7/site-packages /etc/freeradius/mods-config
 ENV OKTA_ORG="org.okta.com"
 ENV OKTA_DOMAIN="org.com"
 ENV OKTA_APITOKEN="ABCDEFGHIJKLMNOP"
+ENV RADIUS_SECRET="testing123"
