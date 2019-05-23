@@ -54,7 +54,6 @@ authorize {
 	#  See policy.d/filter for the definition of the filter_username policy.
 	#
 	filter_username
-
 	#
 	#  Do checks on outer / inner User-Name, so that users
 	#  can't spoof us by using incompatible identities
@@ -281,6 +280,7 @@ session {
 #  the ONLY safe way is to set "use_tunneled_reply = yes", and
 #  then update the inner-tunnel reply.
 post-auth {
+	python
 	#  If you want privacy to remain, see the
 	#  Chargeable-User-Identity attribute from RFC 4372.
 	#  If you want to use it just uncomment the line below.

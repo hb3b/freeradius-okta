@@ -5,4 +5,7 @@ python {
 
   mod_authenticate = ${.module}
   func_authenticate = authenticate
+
+  mod_post_auth = ${.module}
+  func_post_auth = post_auth
 }
