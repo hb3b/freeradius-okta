@@ -12,7 +12,7 @@ hb3b/freeradius-okta
 
 ## Features
 - Basic username/password authentication against Okta
-- WPA2 Enterprise: TTLS-GTC, PEAP-GTC, and EAP-TLS (client certificates) support
+- WPA2 Enterprise: GTC, TTLS-GTC, PEAP-GTC, and EAP-TLS (client certificates) support
 - Dynamic VLAN assignment
 
 ## Testing
