@@ -4,10 +4,10 @@
 # Ben Hecht <hechtb3@gmail.com>
 #
 
-import json
 import requests
 import radiusd
 import os
+
 
 def authenticate(p):
   radiusd.radlog(radiusd.L_INFO, '*** Authenticate: {} ***'.format(p))
@@ -35,6 +35,7 @@ def authorize(p):
   radiusd.radlog(radiusd.L_INFO, '*** Authorize: {} ***'.format(p))
   return radiusd.RLM_MODULE_OK
 
+
 def post_auth(p):
   radiusd.radlog(radiusd.L_INFO, '*** Post Authentication: {} ***'.format(p))
   params = dict(i for i in p)
@@ -42,11 +43,11 @@ def post_auth(p):
   if params['EAP-Type'] == 'TLS':
     radiusd.radlog(radiusd.L_INFO, 'Processing a certificate')
     return (radiusd.RLM_MODULE_OK,
-    (
-      ('Tunnel-Private-Group-Id', '1111111'),
-      ('Tunnel-Type', 'VLAN'),
-      ('Tunnel-Medium-Type', 'IEEE-802'),
-    ),())
+            (
+              ('Tunnel-Private-Group-Id', '1111111'),
+              ('Tunnel-Type', 'VLAN'),
+              ('Tunnel-Medium-Type', 'IEEE-802'),
+            ), ())
 
   elif params['EAP-Type'] == 'GTC':
     radiusd.radlog(radiusd.L_INFO, 'Processing a GTC client')
@@ -54,11 +55,11 @@ def post_auth(p):
     # if params['User-Name'] == 'ben.hecht':
     vlan = '1'
     return (radiusd.RLM_MODULE_OK,
-    (
-      ('Tunnel-Private-Group-Id', vlan),
-      ('Tunnel-Type', 'VLAN'),
-      ('Tunnel-Medium-Type', 'IEEE-802'),
-    ),())
+            (
+              ('Tunnel-Private-Group-Id', vlan),
+              ('Tunnel-Type', 'VLAN'),
+              ('Tunnel-Medium-Type', 'IEEE-802'),
+            ), ())
 
-  elif params['EAP-Type'] == 'PEAP': # Allow outer server to pass thru
+  elif params['EAP-Type'] == 'PEAP':  # Allow outer server to pass thru
     return radiusd.RLM_MODULE_OK
