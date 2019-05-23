@@ -10,6 +10,11 @@ docker run -it -p 1812:1812/udp \
 hb3b/freeradius-okta
 ```
 
+## Features
+- Basic username/password authentication against Okta
+- WPA2 Enterprise: EAP-GTC, PEAP-GTC, and EAP-TLS (client certificates) support
+- Dynamic VLAN assignment
+
 ## Testing
 * https://itunes.apple.com/us/app/eaptest/id725566160?mt=12
 
