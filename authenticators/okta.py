@@ -41,7 +41,7 @@ def post_auth(p):
   params = dict(i for i in p)
 
   if params['EAP-Type'] == 'TLS':
-    radiusd.radlog(radiusd.L_INFO, 'Processing a certificate')
+    radiusd.radlog(radiusd.L_INFO, 'Processing a client certificate')
     return radiusd.RLM_MODULE_OK
 
   elif params['EAP-Type'] == 'GTC':
@@ -57,5 +57,5 @@ def post_auth(p):
     #         ), ())
     return radiusd.RLM_MODULE_OK
 
-  elif params['EAP-Type'] == 'PEAP':  # Allow outer server to pass thru
+  elif params['EAP-Type'] == 'PEAP' or params['EAP-Type'] == 'TTLS':
     return radiusd.RLM_MODULE_OK
