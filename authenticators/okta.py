@@ -50,18 +50,15 @@ def post_auth(p):
 
   elif params['EAP-Type'] == 'GTC':
     radiusd.radlog(radiusd.L_INFO, 'Processing a GTC client')
-    if params['User-Name'] == 'ben.hecht':
-      vlan = '3'
-    else:
-      vlan = '6'
+    # For dynamic VLAN...
+    # if params['User-Name'] == 'ben.hecht':
+    vlan = '1'
     return (radiusd.RLM_MODULE_OK,
-            (
-              ('Tunnel-Private-Group-Id', vlan),
-              ('Tunnel-Type', 'VLAN'),
-              ('Tunnel-Medium-Type', 'IEEE-802'),
-            ),
-            (
-            )
-            )
-  elif params['EAP-Type'] == 'PEAP': # outer server, pass thru
+    (
+      ('Tunnel-Private-Group-Id', vlan),
+      ('Tunnel-Type', 'VLAN'),
+      ('Tunnel-Medium-Type', 'IEEE-802'),
+    ),())
+
+  elif params['EAP-Type'] == 'PEAP': # Allow outer server to pass thru
     return radiusd.RLM_MODULE_OK
