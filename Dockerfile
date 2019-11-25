@@ -2,7 +2,7 @@ FROM python:2.7.15 AS python
 RUN virtualenv /venv
 RUN /venv/bin/pip install requests
 
-FROM freeradius/freeradius-server:3.0.19
+FROM freeradius/freeradius-server:3.0.20
 RUN apt-get update
 RUN apt-get -y install vim
 COPY configs/clients.conf /etc/freeradius/clients.conf
