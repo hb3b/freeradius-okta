@@ -14,6 +14,9 @@ COPY configs/users /etc/freeradius/users
 COPY authenticators/okta.py /etc/freeradius/mods-config/python/okta.py
 COPY --from=python /venv/lib/python2.7/site-packages /etc/freeradius/mods-config/python/
 
+RUN rm /var/log/freeradius/radius.log
+RUN ln -s /dev/stdout /var/log/freeradius/radius.log
+
 ENV OKTA_ORG="org.okta.com"
 ENV OKTA_DOMAIN="org.com"
 ENV OKTA_APITOKEN="ABCDEFGHIJKLMNOP"
