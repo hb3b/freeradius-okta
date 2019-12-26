@@ -17,3 +17,4 @@ hb3b/freeradius-okta
 
 ## Testing
 * https://itunes.apple.com/us/app/eaptest/id725566160?mt=12
+* [eapol_test](/tree/master/testing)
