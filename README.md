@@ -1,4 +1,5 @@
 # FreeRADIUS + Okta
+* Do not use this. There are some performance issues with the FreeRADIUS python module that has led me to avoid using it in production. Instead, use the rest module with a small micro-service to pass credentials back and forth to Okta.
 
 ## Quickstart
 ```
